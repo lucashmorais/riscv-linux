@@ -38,6 +38,9 @@ ENTRY(_start)
 	li t0, SR_FS
 	csrc sstatus, t0
 
+	li t0, SR_XS_INITIAL
+	csrs sstatus, t0
+
 	/* Pick one hart to run the main boot sequence */
 	la a3, hart_lottery
 	li a2, 1
